@@ -1,0 +1,42 @@
+server:
+  port: 8080
+  compression:
+    enabled: false
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  devtools:
+    restart:
+      enabled: true
+
+  datasource:
+    username: root
+    password: qyfnig107
+    url: jdbc:mysql://localhost:3306/gzhipin?serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+    platform: mysql
+    sql-script-encoding: UTF-8
+    separator: ;
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  servlet:
+    multipart:
+      max-file-size: 10240MB
+      max-request-size: 10240MB
+      location: /tmp/run.gzhipin.app
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ['metrics', 'env', 'health']
+logging:
+  level:
+    com.gzhipin: info
+  file:
+    path: /logs/.gzhipin/log
+debug: false
