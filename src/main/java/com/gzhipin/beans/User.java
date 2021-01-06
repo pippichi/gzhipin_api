@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "g_users")
+@Table(name = "g_user")
 public class User extends BaseBean {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -118,7 +118,12 @@ public class User extends BaseBean {
     }
 
     @JsonProperty(value = "skills_id")
-    public Integer getSkillsId() { return this.skills.getId(); }
+    public Integer getSkillsId() {
+        if (this.skills != null)
+            return this.skills.getId();
+        else
+            return null;
+    }
 
     public void setSkills(Skills skills) {
         this.skills = skills;
