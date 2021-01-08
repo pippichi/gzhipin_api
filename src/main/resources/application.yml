@@ -4,21 +4,13 @@ server:
     enabled: false
 
 spring:
+  profiles:
+    active: dev
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
   devtools:
     restart:
       enabled: true
-
-  datasource:
-    username: root
-    password: qyfnig107
-    url: jdbc:mysql://localhost:3306/gzhipin?serverTimezone=Asia/Shanghai
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    initialization-mode: always
-    platform: mysql
-    sql-script-encoding: UTF-8
-    separator: ;
 
   jpa:
     hibernate:
